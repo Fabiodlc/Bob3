@@ -1,0 +1,67 @@
+#include <BOB3.h>
+
+const int ID_ALICE = 8;    //Die jeweiligen Nummern (ID) sind bei jedem Bob einzigartig.Man kann die ID vom Bob auf der oberen rechten Rückseite finden. Die gelöhtete Nummer ist die ID. Wenn es zwei Löhtstellen gibt,dann muss man diese Zahlen Addieren.	
+const int ID_BOB = 18;
+
+
+
+// Das soll alice machen:
+ void loop_others() {
+  
+  if (bob3.getArm(1) !=0) {			//1 = touched; 2 = not touched 
+    
+  bob3.setEyes(PURPLE, PURPLE);
+  bob3.transmitMessage(1);
+      delay(10);
+
+} 
+else if (bob3.getArm(2) !=0){
+  
+  bob3.setEyes(PURPLE, PURPLE);
+  bob3.transmitMessage(1);
+    delay(10);
+
+} 
+else {
+  
+  bob3.setEyes(GREEN, GREEN);
+  bob3.transmitMessage(2);
+    delay(10);
+
+}
+}
+
+
+// Das soll Bob machen:
+void loop_bob() {
+  
+  if (bob3.receiveMessage(1000) == 1) {
+    
+  bob3.setEyes(RED, RED);
+  
+
+} 
+ 
+else {
+  
+  bob3.setEyes(GREEN, GREEN);
+    
+
+}
+}
+
+// Standard Funktionen
+void setup() {
+  
+}
+
+void loop() {
+  int id = bob3.getID();
+  if (id==ID_ALICE) { 
+    loop_others();
+  } else {
+    loop_bob();
+  }
+}
+
+
