@@ -1,3 +1,5 @@
+//by Fabiodlc
+
 #include <BOB3.h>
 
 const int ID_ALICE = 8;    //Die jeweiligen Nummern (ID) sind bei jedem Bob einzigartig.Man kann die ID vom Bob auf der oberen rechten Rückseite finden. Die gelöhtete Nummer ist die ID. Wenn es zwei Löhtstellen gibt,dann muss man diese Zahlen Addieren.	
